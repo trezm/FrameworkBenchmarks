@@ -1,6 +1,5 @@
 Docroot/WEB-INF/classes/
 Docroot/WEB-INF/work/
-Docroot/WEB-INF/lib/
 Logs/
 jdbc-alerts.log
 Thumbs.db
