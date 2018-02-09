@@ -3,4 +3,3 @@
 # Example: *.class, *.pyc, bin/
 
 ExampleApp/target/
-ExampleApp/Cargo.toml
