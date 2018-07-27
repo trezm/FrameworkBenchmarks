@@ -26,18 +26,18 @@ fn json(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareReturnValu
     let val = serde_json::to_string(&json).unwrap();
 
     context.body = val;
-    context.set_header("Content-Type".to_owned(), "application/json".to_owned());
+    context.set_header("Content-Type", "application/json");
 
-    Box::new(future::ok(context))
+    MiddlewareReturnValue::TSync(context)
 }
 
 fn plaintext(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareReturnValue<Ctx> {
     let val = "Hello, world!".to_owned();
 
     context.body = val;
-    context.set_header("Content-Type".to_owned(), "text/plain".to_owned());
+    context.set_header("Content-Type", "text/plain");
 
-    Box::new(future::ok(context))
+    MiddlewareReturnValue::TSync(context)
 }
 
 fn main() {
