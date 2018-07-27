@@ -28,7 +28,7 @@ fn json(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareReturnValu
     context.body = val;
     context.set_header("Content-Type", "application/json");
 
-    MiddlewareReturnValue::TSync(context)
+    Box::new(future::ok(context))
 }
 
 fn plaintext(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareReturnValue<Ctx> {
@@ -37,7 +37,7 @@ fn plaintext(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareRetur
     context.body = val;
     context.set_header("Content-Type", "text/plain");
 
-    MiddlewareReturnValue::TSync(context)
+    Box::new(future::ok(context))
 }
 
 fn main() {
