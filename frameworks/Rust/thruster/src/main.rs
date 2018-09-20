@@ -29,6 +29,7 @@ fn json(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareReturnValu
 
     context.body = val;
     context.set_header("Content-Type", "application/json");
+    context.set_header("Server", "Thruster");
 
     Box::new(future::ok(context))
 }
@@ -38,6 +39,7 @@ fn plaintext(mut context: Ctx, _chain: &MiddlewareChain<Ctx>) -> MiddlewareRetur
 
     context.body = val;
     context.set_header("Content-Type", "text/plain");
+    context.set_header("Server", "Thruster");
 
     Box::new(future::ok(context))
 }
