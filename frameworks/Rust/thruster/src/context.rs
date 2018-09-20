@@ -23,7 +23,7 @@ impl Ctx {
 
 impl Context for Ctx {
   fn get_response(self) -> Response<Body> {
-    let mut response_builder = Response::builder();
+    let mut response_builder = self.response;
     response_builder.status(StatusCode::from_u16(self.status_code).unwrap());
     response_builder.body(Body::from(self.body)).unwrap()
   }
